@@ -9,7 +9,7 @@ cd /usr/share/xt_geoip
 sudo /usr/libexec/xtables-addons/xt_geoip_dl
 sudo /usr/libexec/xtables-addons/xt_geoip_build -s -i dbip*.csv
 ```
-4. Put this into  `/etc/cron.weekly/geoip-update.sh`
+4. Put this into  `/etc/cron.weekly/geoip-update`
 
 ```
 #!/bin/bash -e
