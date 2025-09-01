@@ -35,7 +35,16 @@ ufw reload
 echo "Weekly geoip update completed on $(date)" >> /var/log/geoip_update.log
 ```
 Then,
-`chmod + /etc/cron.weekly/geoip-update.sh`
+
+`chmod +x /etc/cron.weekly/geoip-update`
+
+Test `/etc/cron.weekly/` with `run-parts`
+
+`run-parts --test /etc/cron.weekly/`
+
+This line should appear on the output
+
+`/etc/cron.weekly//geoip-update`
 
 3.  `modprobe xt_geoip`
 and check
@@ -92,7 +101,7 @@ Get only country code:
 
 Create `/usr/local/bin/geoip-drop-stats.sh`:
 ```
- #!/bin/bash
+#!/bin/bash
 LOGFILE="/var/log/ufw.log"
 TMPFILE="/tmp/geoip-ips.txt"
 
